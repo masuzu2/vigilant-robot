@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg border-0 rounded-4" style="max-width: 500px; width: 100%;">
+        <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+            <h4 class="mb-0 fw-bold">📝 แบบฟอร์มบันทึกข้อมูลประชากร</h4>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <form method="post" action="/form/">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="name" class="form-label fw-bold text-secondary">ชื่อประชากร</label>
+                    <input type="text" class="form-control form-control-lg bg-light border-0 shadow-sm" name="name" placeholder="กรุณากรอกชื่อ-นามสกุล" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="age" class="form-label fw-bold text-secondary">อายุ</label>
+                    <input type="number" class="form-control form-control-lg bg-light border-0 shadow-sm" name="age" placeholder="กรอกข้อมูลอายุเป็นตัวเลข" required>
+                </div>
+                
+                <div class="d-grid gap-3 mt-5">
+                    <button type="submit" class="btn btn-success btn-lg rounded-pill shadow-sm fw-bold">บันทึกข้อมูลลงระบบ</button>
+                    <button type="reset" class="btn btn-outline-danger btn-lg rounded-pill fw-bold">ล้างข้อมูล</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
